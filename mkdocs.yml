@@ -1,0 +1,17 @@
+site_name: Umbra documentation
+nav:
+  - Home: index.md
+
+theme:
+  name: material
+  icon:
+    logo: material/heart
+  plugins:
+    - privacy:
+        enabled: true
+  highlightjs: true
+  hljs_languages:
+    - bash
+
+markdown_extensions:
+  - pymdownx.magiclink 
