@@ -1,6 +1,6 @@
 local AMETHYST_REPO=${0:a:h:h}
 # Features {{{
-autoload -U add-zsh-hook
+autoload -U add-zsh-hook compinit zrecompile
 # }}}
 # Uncategorised stuff{{{
 # I do not understand what extended_glob does, but all the decent guides say to use it, and the 
@@ -35,7 +35,6 @@ setopt pushd_ignore_dups
 setopt pushdminus
 # }}}
 # Autocomplete {{{
-autoload -U compinit zrecompile
 unsetopt autocd
 
 compinit

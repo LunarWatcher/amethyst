@@ -74,6 +74,6 @@ function amethyst-plugin() {
             return 1
         fi
         # TODO: test that this actually works
-        export "${OUTPUT}"="$plugin_loc"
+        export "${output}"="$plugin_loc"
     fi
 }
