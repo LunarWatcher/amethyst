@@ -1,3 +1,4 @@
+local AMETHYST_REPO=${0:a:h:h}
 # Features {{{
 autoload -U add-zsh-hook
 # }}}
@@ -86,4 +87,26 @@ function preexec_title() {
 
 add-zsh-hook preexec preexec_title
 add-zsh-hook precmd precmd_title
+# }}}
+# Meta-commands {{{
+# TODO: Figure out how I get non-API functions to not pollute the global namespace
+function _amethyst_update() {
+    (cd "$AMETHYST_REPO" && git pull)
+}
+function amethyst() {
+    local command="${1}"
+    if [ -z "$command" ]; then
+        echo "Usage: amethyst update"
+        return 0
+    fi
+    shift
+    if [[ "$command" == "update" ]];
+    then
+        echo "Updating amethyst..."
+        _amethyst_update $@
+    else
+        echo "Unknown command: ${command}"
+        echo "Usage: amethyst update"
+    fi
+}
 # }}}

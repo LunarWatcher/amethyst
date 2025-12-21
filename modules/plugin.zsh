@@ -19,7 +19,7 @@ function amethyst-plugin-help() {
     echo "          to store the path. Use this if you don't know what to use."
 }
 
-local check-exists() {
+function check-exists() {
     local path="$PLUGIN_REPO/${1}"
     if [ -d "$path" ]; then
         return 0
