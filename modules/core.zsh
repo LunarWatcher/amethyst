@@ -34,6 +34,12 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 # }}}
+# zle {{{
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
+# }}}
 # Autocomplete {{{
 unsetopt autocd
 
