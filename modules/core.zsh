@@ -70,6 +70,7 @@ zmodload zsh/nearcolor
 bindkey "^[[1;5C" forward-word # ctrl-right
 bindkey "^[[1;5D" backward-word # ctrl-left
 bindkey "^[[3;5~" kill-word # ctrl-delete
+bindkey "^[[3~"  delete-char
 # }}}
 # Word boundaries {{{
 # Not sure how much of this is actually necessary
