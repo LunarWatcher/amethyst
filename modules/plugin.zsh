@@ -76,4 +76,9 @@ function amethyst-plugin() {
         # TODO: test that this actually works
         export "${output}"="$plugin_loc"
     fi
+
+    export fpath=("$plugin_loc" $fpath)
+    # TODO: this might tank performance? but not sure how to better integrate it. Would need an extra function that
+    # signals plugin end likely, since plugin loading isn't managed by amethyst
+    compinit
 }
