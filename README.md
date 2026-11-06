@@ -6,7 +6,8 @@ Of all the projects I have started, this is probably the lowest-level one, and a
 
 * No AI slop: particularly on the shell, AI slop being involved is a massive threat to the individuals running the software, particularly given [the rate at which LLMs generate insecure code](https://doi.org/10.1007/s10664-024-10590-1).
 * AI slop is becoming a supply chain threat. One part falling to AI slop should not break everything. This distribution therefore only covers core config, package management, certain utilities, and resources meant to fill in the rest. Themes and plugins are maintained by other people.
-* This repo is mainly hosted on [Codeberg](https://codeberg.org/LunarWatcher/amethyst)
+
+Note: This repo is mainly hosted on [Codeberg](https://codeberg.org/LunarWatcher/amethyst)
 
 ## Out-of-scope features
 
