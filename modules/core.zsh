@@ -107,18 +107,25 @@ function _amethyst_update() {
 }
 function amethyst() {
     local command="${1}"
-    if [ -z "$command" ]; then
-        echo "Usage: amethyst update"
-        return 0
-    fi
-    shift
     if [[ "$command" == "update" ]];
     then
         echo "Updating amethyst..."
         _amethyst_update $@
+    elif [[ "$command" == "plugin" ]]; then
+        if ! command -v _amethyst_plugin_meta > /dev/null; then
+            echo "The plugin module must be enabled to use this command."
+            exit 1
+        else
+            _amethyst_plugin_meta $@
+        fi
     else
-        echo "Unknown command: ${command}"
-        echo "Usage: amethyst update"
+        if [[ ! -z "$command" && "$command" != "help" && command != "--help" && command != "-h" ]]; then
+            echo "Unknown command: ${command}"
+        fi
+        echo "Usage: amethyst [command]"
+        echo "Valid commands:"
+        echo "\tupdate\tUsed for updating amethyst"
+        echo "\tplugin\tUsed for interacting with the plugin module, if enabled. Use amethyst plugin --help for more information"
     fi
 }
 # }}}

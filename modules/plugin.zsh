@@ -82,3 +82,29 @@ function amethyst-plugin() {
     # signals plugin end likely, since plugin loading isn't managed by amethyst
     compinit
 }
+
+function _amethyst_plugin_update() {
+    pushd "$PLUGIN_REPO"
+
+    for dir in $(command ls); do
+        echo "Updating $dir...",
+        cd "$dir" && git pull
+    done
+    echo "All plugins updated."
+
+    popd
+}
+
+function _amethyst_plugin_meta() {
+    local subcommand="${1}"
+    if [[ "$subcommand" == "update" ]]; then
+        _amethyst_plugin_update
+    else
+        if [[ "$command" != "help" && command != "--help" && command != "-h" ]]; then
+            echo "Unknown command: amethyst plugin ${command}"
+        fi
+        echo "Usage: amethyst plugin [command]"
+        echo "Valid commands:"
+        echo "\tupdate"
+    fi
+}
