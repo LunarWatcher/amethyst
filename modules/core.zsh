@@ -1,6 +1,11 @@
 local AMETHYST_REPO=${0:a:h:h}
 # Features {{{
 autoload -U add-zsh-hook compinit zrecompile
+
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
 # }}}
 # Uncategorised stuff{{{
 # I do not understand what extended_glob does, but all the decent guides say to use it, and the 
