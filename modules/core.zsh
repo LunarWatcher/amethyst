@@ -31,8 +31,19 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
+
+# We apparently need all of this shit to be compatible with other systems. Just "^[[A" breaks on my mint box, because up
+# is ^[0A. $key[Up] is undefined on my arch box, but defined on mint and possibly all of debian. $terminfo[kcuu1] alone
+# does not seem to work either, so I guess we're doing this shit
+bindkey "^[[A" up-line-or-beginning-search
+if [[ -n "${terminfo[kcuu1]}" ]]; then
+  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+
+bindkey "^[[B" down-line-or-beginning-search
+if [[ -n "${terminfo[kcud1]}" ]]; then
+  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
 # }}}
 # Dir state {{{
 setopt auto_cd
