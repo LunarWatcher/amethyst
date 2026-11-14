@@ -1,5 +1,12 @@
 {
-  "data": {},
+  "data": {
+    "language": "en-GB",
+    "repo": {
+      "name": "LunarWatcher/amethyst",
+      "url": "https://codeberg.org/LunarWatcher/amethyst",
+      "license": "Amethyst is licensed under the MIT license. See <a href=\"https://codeberg.org/LunarWatcher/amethyst/src/branch/master/LICENSE\">the LICENSE file</a>"
+    }
+  },
   "description": "Doc website for Amethyst, a zsh config distribution",
   "destination": "pages",
   "exclude": [
