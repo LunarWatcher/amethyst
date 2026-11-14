@@ -1,0 +1,14 @@
+{
+  "data": {},
+  "description": "Doc website for Amethyst, a zsh config distribution",
+  "destination": "pages",
+  "exclude": [
+    "LICENSE",
+    "scripts"
+  ],
+  "name": "Amethyst",
+  "prefix": "/amethyst",
+  "theme": "_default",
+  "timezone": "Europe/Oslo",
+  "toc-start-level": 2
+}
